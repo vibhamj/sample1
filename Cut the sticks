@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int min(ArrayList arr)
+        {
+        int minimum=(int)arr.get(0);
+        for(int i=1;i<arr.size();i++)
+            {
+            if((int)arr.get(i)<minimum)
+                minimum=(int)arr.get(i);
+        }
+        return minimum;
+    }
+    public static int sticksCut(ArrayList sticks)
+        {
+        int min=0;
+        int count=0;
+        int length=0;
+        min=min(sticks);
+        for(int i=0;i<sticks.size();i++)
+            {
+                    
+
+            length=(int)sticks.get(i);
+            
+            length-=min;
+            //System.out.println(length);
+            if(length==0)
+                {
+                sticks.remove(i);
+                i=i-1;
+            }
+            count++;
+            
+       
+    }
+        //System.out.println("hello");
+         return count;
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int numberOfSticks=0;
+       
+        ArrayList sticks=new ArrayList<Integer>();
+        Scanner scan=new Scanner(System.in);
+        numberOfSticks=scan.nextInt();
+        for(int i=0;i<numberOfSticks;i++)
+            {
+            sticks.add(scan.nextInt());
+        }
+       // System.out.println(numberOfSticks);
+       while(sticks.size()!=0)
+           {
+           System.out.println(sticksCut(sticks));
+       }
+    }
+}
