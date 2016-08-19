@@ -1,0 +1,30 @@
+BigInteger usage in java
+
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+    static BigInteger factorial(int number,BigInteger bi){
+        
+        for (int i = 1; i <= number; i++){
+            bi = bi.multiply(BigInteger.valueOf(i));
+        }
+        return bi;
+        
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int number=sc.nextInt();
+        
+        BigInteger bi=BigInteger.ONE;
+        BigInteger finalValue;
+        
+        finalValue=factorial(number,bi);
+        
+        System.out.println(finalValue);
+        
+    }
+}
